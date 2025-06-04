@@ -427,3 +427,122 @@ PATCH is reserved for [JSON Patch](http://jsonapi.org/format/#patch) operations.
 `POST`, `PUT` and `PATCH` expect JSON bodies in the request. `Content-Type` header MUST be set to `application/json`.
 For unsupported media types a `415` (Unsupported Media Type) response code is returned.
 
+
+### Caching
+
+Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. The
+values of these headers can be used to make subsequent requests to those resources using the
+`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource has not changed, the
+server will return a `304 Not Modified`. Note that making a conditional request and receiving a 304
+response does _not_ count against your rate limit, so we encourage you to use it whenever possible.
+
+`Cache-Control: private, max-age=60`
+`ETag: <hash of contents>`
+`Last-Modified: updated_at`
+
+### Vary header
+The following header values must be declared in the Vary header: `Accept`, `Authorization` and `Cookie`.
+
+Any of these headers can change the representation of the data and should invalidate a cached
+version. This can be useful if users have different accounts to do admin, each with different
+privileges and resource visibility.
+
+### Compression
+All responses should support gzip.
+
+### Result filtering, sorting & searching
+See JSON-API: http://jsonapi.org/format/#fetching-filtering
+
+### Time zone/dates
+Explicitly provide an ISO8601 timestamp with timezone information (DateTime in UTC).
+Use the exact timestamp for API calls that allow a timestamp to be specified.
+These timestamps look something like `2014-02-27T15:05:06+01:00`. ISO 8601 UTC format: YYYY-MM-DDTHH:MM:SSZ.
+
+### HTTP rate limiting
+All endpoints must be rate limited. The current rate limit status is returned in the HTTP headers of
+all API requests.
+
+```http
+Rate-Limit-Limit: 5000
+Rate-Limit-Remaining: 4994
+Rate-Limit-Reset: Thu, 01 Dec 1994 16:00:00 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+Retry-After: Thu, 01 May 2014 16:00:00 GMT
+
+RateLimit-Reset uses the HTTP header date format: RFC 1123 (Thu, 01 Dec 1994 16:00:00 GMT)
+```
+
+Exceeding rate limit:
+```http
+// 429 Too Many Requests
+{
+    "message": "API rate limit exceeded.",
+    "type": "rate_limit_exceeded",
+    "documentation_url": "http://developer.example.com/#rate_limit_exceeded"
+}
+```
+
+### CORS
+Support Cross Origin Resource Sharing (CORS) for AJAX requests.
+
+Resources:
+- [CORS W3C working draft](https://www.w3.org/TR/cors/)
+- [HTML5 Rocks](http://www.html5rocks.com/en/tutorials/cors/)
+
+Any domain that is registered against the requesting account is accepted.
+
+```http
+$ curl -i https://api.example.com -H "Origin: http://google.com"
+HTTP/1.1 302 Found
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Link, RateLimit-Limit, RateLimit-Remaining, RateLimit-Reset, OAuth-Scopes, Accepted-OAuth-Scopes
+Access-Control-Allow-Credentials: false
+
+// CORS Preflight request
+// OPTIONS 200
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Requested-With
+Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
+Access-Control-Expose-Headers: ETag, RateLimit-Limit, RateLimit-Remaining, RateLimit-Reset
+Access-Control-Max-Age: 86400
+Access-Control-Allow-Credentials: false
+```
+
+### TLS/SSL
+All API request MUST be made over SSL, including outgoing web hooks. Any non-secure requests
+return `ssl_required`, and no redirects are performed.
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Length: 35
+
+{
+  "message": "API requests must be made over HTTPS",
+  "type": "ssl_required",
+  "docs": "https://developer.example.com/errors#ssl_required"
+}
+```
+
+### Include related resource representations
+See JSON-API: http://jsonapi.org/format/#fetching-includes
+
+### Limit fields in response
+See JSON-API: http://jsonapi.org/format/#fetching-sparse-fieldsets
+
+### Unique request identifiers
+Set a `Request-Id` header to aid debugging across services.
+
+Credits:
+-------
+We referred to lots of resources during the creation of this guide, including:
+
+- https://www.gov.uk/service-manual/making-software/apis.html
+- http://www.mnot.net/blog/
+- http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+- https://github.com/WhiteHouse/api-standards
+- http://apigee.com/about/content/api-fa%C3%A7ade-pattern
+- https://pages.apigee.com/web-api-design-ebook.html
+- https://groups.google.com/forum/#!forum/api-craft
+- https://github.com/gocardless/http-api-design
+- https://github.com/interagent/http-api-design
