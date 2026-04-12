@@ -6,6 +6,7 @@
 # Table of Contents
   * [Best Practices for Onboarding](#onboarding)
   * [Engineering Career Development](#engineering-career-development)
+  * [Major Cloud Providers' Always-Free Limits](#major-cloud-providers)
   * [Site Reliability Engineering](#site-reliability-engineering)
   * [Popular Observability Tools](#popular-observability-tools)
 
@@ -45,6 +46,143 @@
 * [Principles of Successful Software Engineering Teams](https://blog.brunomiranda.com/principles-of-successful-software-engineering-teams-41a65bfd56b3) - Highlight important principles of a successful team's philosophy.
 * [Key Principles That Lead to High-Performing Engineering Teams](https://www.hugeinc.com/articles/key-principles-that-lead-to-high-performing-engineering-teams) - How to build a culture that consistently delivers a quality product, shortens lead times, and improves continuously.
 * [5 Principles on What Makes a Great Agile Development Team](http://blogs.starcio.com/2015/04/principles-great-agile-development-team.html) - Suggest a short list of what makes a well executing IT team great.
+
+**[⬆️ Back to Top](#table-of-contents)**
+
+## Major Cloud Providers
+
+  * [Google Cloud Platform](https://cloud.google.com)
+    * App Engine - 28 frontend instance hours per day, nine backend instance hours per day
+    * Cloud Firestore - 1GB storage, 50,000 reads, 20,000 writes, 20,000 deletes per day
+    * Compute Engine - 1 non-preemptible e2-micro, 30GB HDD, 5GB snapshot storage (restricted to certain regions), 1 GB network egress from North America to all region destinations (excluding China and Australia) per month
+    * Cloud Storage - 5GB, 1GB network egress
+    * Cloud Shell - Web-based Linux shell/primary IDE with 5GB of persistent storage. 60 hours limit per week
+    * Cloud Pub/Sub - 10GB of messages per month
+    * Cloud Functions - 2 million invocations per month (includes both background and HTTP invocations)
+    * Cloud Run - 2 million requests per month, 360,000 GB-seconds memory, 180,000 vCPU-seconds of compute time, 1 GB network egress from North America per month
+    * Google Kubernetes Engine - No cluster management fee for one zonal cluster. Each user node is charged at standard Compute Engine pricing
+    * BigQuery - 1 TB of querying per month, 10 GB of storage each month
+    * Cloud Build - 120 build-minutes per day
+    * [Google Colab](https://colab.research.google.com/) - Free Jupyter Notebooks development environment.
+    * Full, detailed list - https://cloud.google.com/free
+
+  * [Amazon Web Services](https://aws.amazon.com)
+    * [CloudFront](https://aws.amazon.com/cloudfront/) - 1TB egress per month and 2M Function invocations per month
+    * [CloudWatch](https://aws.amazon.com/cloudwatch/) - 10 custom metrics and ten alarms
+    * [CodeBuild](https://aws.amazon.com/codebuild/) - 100min of build time per month
+    * [CodeCommit](https://aws.amazon.com/codecommit/) - 5 active users,50GB storage, and 10000 requests per month
+    * [CodePipeline](https://aws.amazon.com/codepipeline/) - 1 active pipeline per month
+    * [DynamoDB](https://aws.amazon.com/dynamodb/) - 25GB NoSQL DB
+    * [EC2](https://aws.amazon.com/ec2/) - 750 hours per month of t2.micro or t3.micro(12mo). 100GB egress per month
+    * [EBS](https://aws.amazon.com/ebs/) - 30GB per month of General Purpose (SSD) or Magnetic(12mo)
+    * [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/) - 750 hours per month(12mo)
+    * [RDS](https://aws.amazon.com/rds/) - 750 hours per month of db.t2.micro, db.t3.micro, or db.t4g.micro, 20GB of General Purpose (SSD) storage, 20GB of storage backups(12 mo)
+    * [S3](https://aws.amazon.com/s3/) - 5GB Standard object storage, 20K Get requests and 2K Put requests(12 mo)
+    * [Glacier](https://aws.amazon.com/glacier/) - 10GB long-term object storage
+    * [Lambda](https://aws.amazon.com/lambda/) - 1 million requests per month
+    * [SNS](https://aws.amazon.com/sns/) - 1 million publishes per month
+    * [SES](https://aws.amazon.com/ses/) - 3.000 messages per month (12mo)
+    * [SQS](https://aws.amazon.com/sqs/) - 1 million messaging queue requests
+    * Full, detailed list - https://aws.amazon.com/free/
+
+  * [Microsoft Azure](https://azure.microsoft.com)
+    * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) - 1 B1S Linux VM, 1 B1S Windows VM (12mo)
+    * [App Service](https://azure.microsoft.com/services/app-service/) - 10 web, mobile, or API apps (60 CPU minutes/day)
+    * [Functions](https://azure.microsoft.com/services/functions/) - 1 million requests per month
+    * [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) - Enable fast, easy, and lean dev-test environments
+    * [Active Directory](https://azure.microsoft.com/services/active-directory/) - 500,000 objects
+    * [Active Directory B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) - 50,000 monthly stored users
+    * [Azure DevOps](https://azure.microsoft.com/services/devops/) - 5 active users, unlimited private Git repos
+    * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) - 10 free parallel jobs with unlimited minutes for open source for Linux, macOS, and Windows
+    * [Microsoft IoT Hub](https://azure.microsoft.com/services/iot-hub/) - 8,000 messages per day
+    * [Load Balancer](https://azure.microsoft.com/services/load-balancer/) - 1 free public load-balanced IP (VIP)
+    * [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) - 1 million push notifications
+    * [Bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/) - 15GB Inbound(12mo) & 5GB egress per month
+    * [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) - 25GB storage and 1000 RUs of provisioned throughput
+    * [Static Web Apps](https://azure.microsoft.com/pricing/details/app-service/static/) - Build, deploy, and host static apps and serverless functions with free SSL, Authentication/Authorization, and custom domains
+    * [Storage](https://azure.microsoft.com/services/storage/) - 5GB LRS File or Blob storage (12mo)
+    * [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) - AI/ML APIs (Computer Vision, Translator, Face detection, Bots, etc) with free tier including limited transactions
+    * [Cognitive Search](https://azure.microsoft.com/services/search/#features) - AI-based search and indexation service, free for 10,000 documents
+    * [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) - Managed Kubernetes service, free cluster management
+    * [Event Grid](https://azure.microsoft.com/services/event-grid/) - 100K ops/month
+    * Full, detailed list - https://azure.microsoft.com/free/
+
+  * [Oracle Cloud](https://www.oracle.com/cloud/)
+    * Compute
+       - 2 AMD-based Compute VMs with 1/8 OCPU and 1 GB memory each
+       - 4 Arm-based Ampere A1 cores and 24 GB of memory usable as one VM or up to 4 VMs
+       - Instances will be reclaimed when [deemed idle](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm#compute__idleinstances)
+    * Block Volume - 2 volumes, 200 GB total (used for compute)
+    * Object Storage - 10 GB
+    * Load balancer - 1 instance with 10 Mbps
+    * Databases - 2 DBs, 20 GB each
+    * Monitoring - 500 million ingestion data points, 1 billion retrieval datapoints
+    * Bandwidth - 10 TB egress per month, speed limited to 50 Mbps on x64-based VM, 500 Mbps * core count on ARM-based VM
+    * Public IP - 2 IPv4 for VMs, 1 IPv4 for load balancer
+    * Notifications - 1 million delivery options per month, 1000 emails sent per month
+    * Full, detailed list - https://www.oracle.com/cloud/free/
+
+  * [IBM Cloud](https://www.ibm.com/cloud/free/)
+    * Cloudant database - 1 GB of data storage
+    * Db2 database - 100MB of data storage
+    * API Connect - 50,000 API calls per month
+    * Availability Monitoring - 3 million data points per month
+    * Log Analysis - 500MB of daily log
+    * Full, detailed list - https://www.ibm.com/cloud/free/
+
+  * [Cloudflare](https://www.cloudflare.com/)
+    * [Application Services](https://www.cloudflare.com/plans/) - Free DNS for an unlimited number of domains, DDoS Protection, CDN along with free SSL, Firewall rules and page rules,  WAF, Bot Mitigation, Free Unmetered Rate Limiting - 1 rule per domain, Analytics, Email forwarding
+    * [Zero Trust & SASE](https://www.cloudflare.com/plans/zero-trust-services/) - Up to 50 Users, 24 hours of activity logging, three network locations
+    * [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) -  You can expose locally running HTTP port over a tunnel to a random subdomain on trycloudflare.com use [Quick Tunnels](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/trycloudflare/), No account required. More features (TCP tunnel, Load balancing, VPN) in [Zero Trust](https://www.cloudflare.com/products/zero-trust/) Free Plan.
+    * [Workers](https://developers.cloudflare.com/workers/) - Deploy serverless code for free on Cloudflare's global network-100k daily requests.
+    * [Workers KV](https://developers.cloudflare.com/kv) - 100k read requests per day, 1000 write requests per day, 1000 delete requests per day, 1000 list requests per day, 1 GB stored data
+    * [R2](https://developers.cloudflare.com/r2/) - 10 GB per month, 1 million Class A operations per month, 10 million Class B operations per month
+    * [D1](https://developers.cloudflare.com/d1/) - 5 million rows read per day, 100k rows written per day, 1 GB storage
+    * [Pages](https://developers.cloudflare.com/pages/) - Develop and deploy your web apps on Cloudflare's fast, secure global network. Five hundred monthly builds, 100 custom domains, Integrated SSL, unlimited accessible seats, unlimited preview deployments, and full-stack capability via Cloudflare Workers integration.
+    * [Queues](https://developers.cloudflare.com/queues/) - 1 million operations per month
+    * [TURN](https://developers.cloudflare.com/calls/turn/) - 1TB of free (outgoing) traffic per month.
+
+  * [Zoho](https://www.zoho.com) - Started as an e-mail provider but now provides a suite of services, some of which have free plans. List of services having free plans :
+    * [Catalyst by Zoho](https://catalyst.zoho.com) -  PaaS/full-stack cloud platform with a generous [free tier](https://catalyst.zoho.com/free-tier.html)
+    * [Email](https://zoho.com/mail) Free for 5 users. 5GB/user & 25 MB attachment limit, one domain.
+    * [Zoho Assist](https://www.zoho.com/assist) - Zoho Assist's forever free plan includes one concurrent remote support license and Access to 5 unattended computer licenses for unlimited duration available for both professional and personnel use.
+    * [Sprints](https://zoho.com/sprints) Free for 5 users,5 Projects & 500MB storage.
+    * [Docs](https://zoho.com/docs) - Free for 5 users with 1 GB upload limit & 5GB storage. Zoho Office Suite (Writer, Sheets & Show) comes bundled.
+    * [Projects](https://zoho.com/projects) - Free for 3 users, 2 projects & 10 MB attachment limit. The same plan applies to [Bugtracker](https://zoho.com/bugtracker).
+    * [Connect](https://zoho.com/connect) - Team Collaboration free for 25 users with three groups, three custom apps, 3 Boards, 3 Manuals, and 10 Integrations along with channels, events & forums.
+    * [Meeting](https://zoho.com/meeting) - Meetings with upto 3 meeting participants & 10 Webinar attendees.
+    * [Vault](https://zoho.com/vault) - Password Management is accessible for Individuals.
+    * [Showtime](https://zoho.com/showtime) - Yet another Meeting software for training for a remote session of up to 5 attendees.
+    * [Notebook](https://zoho.com/notebook) - A free alternative to Evernote.
+    * [Wiki](https://zoho.com/wiki) - Free for three users with 50 MB storage, unlimited pages, zip backups, RSS & Atom feed, access controls & customizable CSS.
+    * [Subscriptions](https://zoho.com/subscriptions) - Recurring Billing management free for 20 customers/subscriptions & 1 user with all the payment hosting done by Zoho. The last 40 subscription metrics are stored
+    * [Checkout](https://zoho.com/checkout) - Product Billing management with 3 pages & up to 50 payments.
+    * [Desk](https://zoho.com/desk) - Customer Support management with three agents, private knowledge base, and email tickets. Integrates with [Assist](https://zoho.com/assist) for one remote technician & 5 unattended computers.
+    * [Cliq](https://zoho.com/cliq) - Team chat software with 100 GB storage, unlimited users, 100 users per channel & SSO.
+    * [Campaigns](https://zoho.com/campaigns) - Email Marketing
+    * [Forms](https://zoho.com/forms) - Form Creator
+    * [Sign](https://zoho.com/sign) - Paperless Signatures
+    * [Surveys](https://zoho.com/surveys) - Online Surveys
+    * [Bookings](https://zoho.com/bookings) - Appointment Scheduling
+
+
+### Cloud  Projects
+
+Title | Description | Author 
+------|-------------|--------|
+
+[AWS Hands On Tutorials](https://aws.amazon.com/getting-started/hands-on/?getting-started-all.sort-by=item.additionalFields.sortOrder&getting-started-all.sort-order=asc&awsf.getting-started-category=*all&awsf.getting-started-level=*all&awsf.getting-started-content-type=*all) |  Get started with step-by-step tutorials to launch your first application | AWS |
+[AWS Architecture Center](https://aws.amazon.com/architecture/) | The AWS Architecture Center provides reference architecture diagrams, vetted architecture solutions, Well-Architected best practices, patterns, icons, and more. | AWS
+[DevOps the Hardway - AWS](https://github.com/AdminTurnedDevOps/DevOps-The-Hard-Way-AWS) | This tutorial contains a full, real-world solution for setting up an environment that is using DevOps technologies and practices for deploying apps and cloud services/cloud infrastructure to AWS. | [Mike Levan](https://michaellevan.net/)
+[Azure Citadel](https://www.azurecitadel.com/) | Many hands-on labs with Azure | [Azure Citadel](https://www.azurecitadel.com/) 
+[Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/browse/) |   Architecture diagrams and technology descriptions for reference architectures, real world examples of cloud architectures, and solution ideas for common workloads on Azure.   | Microsoft
+[DevOps the Hardway - Azure](https://github.com/thomast1906/DevOps-The-Hard-Way-Azure) | This tutorial contains a full, real-world solution for setting up an environment that is using DevOps technologies and practices for deploying apps and cloud services/cloud infrastructure to Azure. | [Thomas Thorton](https://thomasthornton.cloud/)
+[Deploy an App to Azure with ARM](https://github.com/SoniaConti/ContosoFinance-Demo) | ARM is an IaC tool used with Azure | [Sonia Conti](https://github.com/SoniaConti/ContosoFinance-Demo)
+
+[GCP Architecture Center](https://cloud.google.com/architecture)|   Architectures, diagrams, design patterns, guidance, and best practices for building or migrating your workloads on Google Cloud.  | GCP
+[GCP Codelabs](https://codelabs.developers.google.com/cloud) |  Learn about Google Cloud Platform by completing codelabs and coding challenges! | GCP
+[Google Skills](https://www.skills.google) | Choose your path, build your skills, and validate your GCP knowledge. | GCP
+[DevOps-Exercises](https://github.com/bregman-arie/devops-exercises) | This repo [devops-exercises](https://github.com/bregman-arie/devops-exercises) contains questions and exercises on various technical topics related to DevOps and SRE | [Arie Bregman](https://github.com/bregman-arie)
 
 **[⬆️ Back to Top](#table-of-contents)**
 
